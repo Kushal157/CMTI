@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Frosted glass background */
+.bg-glass {
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+/* Primary neon accent (violet in light, teal in dark) */
+.text-neon {
+  color: #7c3aed;
+}
+
+.dark .text-neon {
+  color: #04f6de;
+}
+
+/* Reusable glowing button style */
+.btn-neon {
+  @apply bg-neon text-black font-semibold px-6 py-2 rounded shadow-md transition hover:scale-105;
+}
+
+.btn-neon-glow:hover {
+  box-shadow: 0 0 8px rgba(0, 212, 178, 0.6), 0 0 16px rgba(0, 212, 178, 0.4);
+}
+
+button,
+input[type='submit'],
+.btn-neon {
+  cursor: pointer;
+}
+
+/* Theme toggle icon glow */
+.glow-icon {
+  display: inline-block;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.glow-icon:hover {
+  transform: scale(1.1);
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.5),
+    0 0 12px rgba(255, 255, 255, 0.3);
+}
+
+/* Purple border animation on hover for cards/panels */
+.hover-box {
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+  border-radius: inherit;
+}
+
+.hover-box:hover {
+  box-shadow: 0 0 0 3px #7c3aed, 0 0 12px rgba(124, 58, 237, 0.3);
+  transform: scale(1.015);
+}
+
+.hover-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.hover-box:hover::before {
+  border-color: #7c3aed;
+  transform: scale(1.02);
+}
